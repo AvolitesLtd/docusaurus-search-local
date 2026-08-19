@@ -88,6 +88,10 @@ export function buildIndex(
           this.tokenizer = (lunr as any).zh.tokenizer;
         }
 
+        // Keep hyphens in indexed tokens (e.g. Titan-Go). Lunr's default
+        // separator is /[\s\-]+/.
+        this.tokenizer.separator = /\s+/;
+
         this.ref("i");
         this.field("t");
         this.metadataWhitelist = ["position"];
