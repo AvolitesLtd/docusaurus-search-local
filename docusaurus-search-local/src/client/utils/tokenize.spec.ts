@@ -24,6 +24,13 @@ describe("tokenize", () => {
   });
 
   test.each<[string, string[]]>([
+    ["Hello-World", ["hello-world"]],
+    ["Titan-Go console", ["titan-go", "console"]],
+  ])("tokenize('%s', ['en']) should return %j", (text, tokens) => {
+    expect(tokenize(text, ["en"])).toEqual(tokens);
+  });
+
+  test.each<[string, string[]]>([
     [
       "População portuguesa é composta",
       ["população", "portuguesa", "é", "composta"],
