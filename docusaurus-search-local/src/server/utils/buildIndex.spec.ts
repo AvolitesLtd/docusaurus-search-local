@@ -23,6 +23,10 @@ describe("buildIndex", () => {
         i: 4,
         t: "私は電車が好きです。",
       },
+      {
+        i: 5,
+        t: "Titan-Go",
+      },
     ],
   ];
   let buildIndex: typeof _buildIndex;
@@ -60,6 +64,11 @@ describe("buildIndex", () => {
             },
           },
         },
+      }),
+    ]);
+    expect(wrappedIndexes[0].index.search("titan-go")).toEqual([
+      expect.objectContaining({
+        ref: "5",
       }),
     ]);
   });
